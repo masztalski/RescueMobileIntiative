@@ -3,9 +3,14 @@ tagline: App for organsing rescue events
 email: intive@intive.com
 description: >
   The demo site for Bulma Clean Theme, made for Jekyll and GitHub pages websites
-baseurl: ""
-url: "https://www.intive.com"
+baseurl: "/RescueMobileIntiative"
+url: "http://masztalski.github.io"
 permalink: pretty
-theme: bulma-clean-theme
+#theme: bulma-clean-theme
 remote_theme: chrisrhymes/bulma-clean-theme
 
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - github-pages
