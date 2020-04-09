@@ -1,0 +1,2 @@
+gem "bulma-clean-theme"
+#gem "github-pages", "~> VERSION", group: :jekyll_plugins

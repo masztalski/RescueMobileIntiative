@@ -1,0 +1,11 @@
+- name: App architecutre
+  link: /#
+  dropdown:
+    - name: Page With Sidebar
+      link: /page-1/
+- name: Get Started
+  link: /setupapp/
+- name: Showcase
+  link: /showcase/
+- name: About us
+  link: /products/
