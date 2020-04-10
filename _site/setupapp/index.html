@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How to setup own environment - Rescue Mobile</title>
+    <link rel="stylesheet" href="/RescueMobileIntiative/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/RescueMobileIntiative/favicon.png" 
+    />
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>How to setup own environment | Rescue Mobile</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="How to setup own environment" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The demo site for Bulma Clean Theme, made for Jekyll and GitHub pages websites" />
+<meta property="og:description" content="The demo site for Bulma Clean Theme, made for Jekyll and GitHub pages websites" />
+<link rel="canonical" href="http://localhost:4000/RescueMobileIntiative/setupapp/" />
+<meta property="og:url" content="http://localhost:4000/RescueMobileIntiative/setupapp/" />
+<meta property="og:site_name" content="Rescue Mobile" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"How to setup own environment","url":"http://localhost:4000/RescueMobileIntiative/setupapp/","description":"The demo site for Bulma Clean Theme, made for Jekyll and GitHub pages websites","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/RescueMobileIntiative/" class="navbar-item">
+                Rescue Mobile
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                <a href="/RescueMobileIntiative/" class="navbar-item ">Home</a>
+                
+                
+                    
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a href="/RescueMobileIntiative/#" class="navbar-link ">App architecutre</a>
+                        <div class="navbar-dropdown">
+                            
+                            <a href="/RescueMobileIntiative/database/" class="navbar-item ">Database</a>
+                            
+                            <a href="/RescueMobileIntiative/cloudfunc/" class="navbar-item ">Cloud functions</a>
+                            
+                            <a href="/RescueMobileIntiative/mobileapp/" class="navbar-item ">Mobile app</a>
+                            
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <a href="/RescueMobileIntiative/setupapp/" class="navbar-item is-active">Get Started</a>
+                    
+                
+                    
+                    <a href="/RescueMobileIntiative/showcase/" class="navbar-item ">Showcase</a>
+                    
+                
+                    
+                    <a href="/RescueMobileIntiative/products/" class="navbar-item ">About us</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <p class="title is-2">How to setup own environment</p>
+            <p class="subtitle is-3">Run RescueMobile on own backend</p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+<div class="content">
+    <h1 id="system-components-summary">System components summary</h1>
+
+<p>System is powered by following components:</p>
+<ul>
+  <li>Firestore database</li>
+  <li>Firebase Authentication</li>
+  <li>Firebase cloud functions</li>
+  <li>Web app written in Flutter</li>
+  <li>Mobile app written in Flutter</li>
+</ul>
+
+<p>Following doc aims to create your own environment for app</p>
+
+<h1 id="requirements-for-building">Requirements for building</h1>
+
+<ul>
+  <li>Flutter</li>
+  <li>Android Studio</li>
+  <li>for iOS builds: XCode</li>
+  <li>for convinient editing cloud functions Visual Code</li>
+</ul>
+
+<h1 id="setup-of-environment">Setup of environment</h1>
+
+<ol>
+  <li>Go to <a href="https://console.firebase.google.com/">https://console.firebase.google.com/</a></li>
+  <li>Create new Firebase project</li>
+  <li>Click on Project Settings in upper-left corner. Choose resource localization for Google Cloud Platform (note: if you don’t select any option there, the deploy will fail).</li>
+</ol>
+
+<p><img src="../assets/images/select_resources.png" alt="resourceLocalizations" /></p>
+<ol>
+  <li>Go to Programming -&gt; Database (left panel) and create new database. Then go to <a href="https://console.cloud.google.com/">https://console.cloud.google.com/</a> , select your project from dropdown. Then from Navigation menu on left go to Datastore section and make sure that Firestore is using native mode (if it’s in datastorage then switch to native mode).</li>
+</ol>
+
+<p><img src="../assets/images/native_firestore.png" alt="native_firestore" height="300px" width="300" /></p>
+
+<h1 id="setup-geolocation-api">Setup geoLocation API</h1>
+
+<p>For geocoding feature in app we are using https://locationiq.com/ . You can use it also - after creating account paste received token into config.json .
+However if you would like to use another geocoding service modify LocationRepository class according to your requirments</p>
+
+<h1 id="download-required-components">Download required components</h1>
+
+<ol>
+  <li>From repo <a href="http://cloud_functions_url.com">http://cloud_functions_url.com</a> obtain code for cloud functions</li>
+  <li>From repo <a href="http://web_app.com">http://web_app.com</a> obtain code for web application</li>
+  <li>From repo <a href="http://mobile_app.com">http://mobile_app.com</a> obtain code for mobile application</li>
+</ol>
+
+<h1 id="prepare-cloud-functions-backend">Prepare cloud functions (backend)</h1>
+
+<p>On firebase console go to Programming -&gt; Functions. You will find instruction on how to install Firebase Function CLI on your computer, please follow them to initiate cloud functions in folder where you have cloned Cloud functions repo</p>
+
+<p>Make sure you have owner acess for created Firebase project</p>
+
+<p>Deploy cloud functions following instructions from google</p>
+
+<p>In Firebase Console go to Programming -&gt; Functions and make sure everything was deployed correctly</p>
+
+<p><img src="../assets/images/functions_list.png" alt="native_firestore" /></p>
+
+<h1 id="prepare-database">Prepare database</h1>
+
+<p>In previous screen read URL on right side of function named initDatabase.
+Using your favourite REST client (e.g. Postman or Insomnia) make POST request with json body to read URL:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://&lt;your-project&gt;.cloudfunctions.net/initDatabase
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "email" : "mail@mail.com",
+    "password": "password",
+    "userName": "UserName"
+}
+</code></pre></div></div>
+
+<p>This request will create your “superuser” with data given in payload, for first login to admin panel and some required documents for app to work</p>
+
+<h1 id="prepare-web-app">Prepare web app</h1>
+
+<p>To prepare your environment for building and running web app please follow <a href="https://flutter.dev/docs/get-started/web">https://flutter.dev/docs/get-started/web</a></p>
+
+<ol>
+  <li>In Firebase project settings create Web app. After creating it, you will see various properties (like appID) that will be nececeary for later steps.</li>
+  <li>Go to RescWeb repository and modify file keys.dart with values taken from step 1. If you’re adding new environment then modify config.dart as well, also add new main_xyz.dart file where xyz is your shortcut for environment named</li>
+  <li>To build the web app run flutter build web -t lib/main_xyz.dart</li>
+  <li>Once application is built then it needs to be deployed. Go to build/web folder and run firebase init</li>
+  <li>Select Hosting, then select public folder and choose single-page app</li>
+  <li>Copy everything from build/web into public (a subfolder), replace index.html</li>
+  <li>Run command firebase deploy</li>
+  <li>In order to login to web app you need to enable e-mail authentication first. Go to Firebase -&gt; Authentication -&gt; Sign-in method and enable e-mail/password</li>
+</ol>
+
+<h1 id="prepare-users">Prepare users</h1>
+
+<p>After you are ready to go with web app create some user with “coordinator” rights to be able to work in app. Account you have created during <strong>Preparing database</strong> step should be used only for maintance, because functions for clearing database are not secured before accident tapping.</p>
+
+<h1 id="prepare-mobile-app">Prepare mobile app</h1>
+
+<p><strong>Flutter part:</strong>
+Create <strong>config.json</strong> file in assets folder with following body:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "dev_url": "https://&lt;your-project&gt;.cloudfunctions.net",
+  "qa_url": "https://&lt;your-project&gt;.cloudfunctions.net",
+  "prod_url": "https://&lt;your-project&gt;.cloudfunctions.net",
+  "geoLoc_url": "https://eu1.locationiq.com/v1",
+  "geoLoc_token": "API_TOKEN for locationiq"
+}
+</code></pre></div></div>
+
+<p><img src="../assets/images/cloud_url.png" alt="native_firestore" /></p>
+
+<p><strong>Android part</strong>
+In Firebase create Android app and download google_services json 
+Paste it into android/app/src/development/google-services.json (also into src/qa and src/production to avoid parsing errors)
+<strong>iOS part:</strong>
+In Firebase create iOS app and download GoogleService-Info.plist
+Paste it into ios/Runner/ as <strong>GoogleService-Info-Dev.plist</strong> (and *-Prod  and *-QA) - naming is important</p>
+
+<p>After this you should be able to build your mobile app as:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flutter build apk --flavor development --target lib/main_dev.dart
+flutter build ios --flavor development --target lib/main_dev.dart
+</code></pre></div></div>
+
+
+</div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/RescueMobileIntiative/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>
+

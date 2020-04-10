@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Database architecture - Rescue Mobile</title>
+    <link rel="stylesheet" href="/RescueMobileIntiative/assets/css/app.css">
+    <link rel="shortcut icon" type="image/png"
+           href="/RescueMobileIntiative/favicon.png" 
+    />
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Database architecture | Rescue Mobile</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Database architecture" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The demo site for Bulma Clean Theme, made for Jekyll and GitHub pages websites" />
+<meta property="og:description" content="The demo site for Bulma Clean Theme, made for Jekyll and GitHub pages websites" />
+<link rel="canonical" href="http://localhost:4000/RescueMobileIntiative/database/" />
+<meta property="og:url" content="http://localhost:4000/RescueMobileIntiative/database/" />
+<meta property="og:site_name" content="Rescue Mobile" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Database architecture","url":"http://localhost:4000/RescueMobileIntiative/database/","description":"The demo site for Bulma Clean Theme, made for Jekyll and GitHub pages websites","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<!-- head scripts --></head>
+
+  <body>
+    
+<nav class="navbar is-primary" >
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/RescueMobileIntiative/" class="navbar-item">
+                Rescue Mobile
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start">
+                <a href="/RescueMobileIntiative/" class="navbar-item ">Home</a>
+                
+                
+                    
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a href="/RescueMobileIntiative/#" class="navbar-link ">App architecutre</a>
+                        <div class="navbar-dropdown">
+                            
+                            <a href="/RescueMobileIntiative/database/" class="navbar-item is-active">Database</a>
+                            
+                            <a href="/RescueMobileIntiative/cloudfunc/" class="navbar-item ">Cloud functions</a>
+                            
+                            <a href="/RescueMobileIntiative/mobileapp/" class="navbar-item ">Mobile app</a>
+                            
+                        </div>
+                    </div>
+                    
+                
+                    
+                    <a href="/RescueMobileIntiative/setupapp/" class="navbar-item ">Get Started</a>
+                    
+                
+                    
+                    <a href="/RescueMobileIntiative/showcase/" class="navbar-item ">Showcase</a>
+                    
+                
+                    
+                    <a href="/RescueMobileIntiative/products/" class="navbar-item ">About us</a>
+                    
+                
+                
+            </div>
+
+            <div class="navbar-end">
+                
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+    
+        <section class="hero  is-medium  is-bold is-primary" >
+    <div class="hero-body ">
+        <div class="container">
+            <p class="title is-2">Database architecture</p>
+            <p class="subtitle is-3">Explanation of tables</p>
+            
+        </div>
+    </div>
+</section>
+    
+    
+
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                
+                <div class="column is-12">
+                    
+                    
+                    
+                    
+<div class="content">
+    <h1 id="collections-explanation">Collections explanation</h1>
+
+<ul>
+  <li><strong>actionAnswers/{actionUID}/values/{autoID}</strong> - containing answers/declaration of users</li>
+  <li><strong>actionTypesDictionary/{autoID}</strong> - dictionary for spinner/comboBox to choose type of action. One or more types can have value isRescue = true . Those are action types with highest prio and default alarm setted, Can be extended by client</li>
+  <li><strong>actions/{autoID}</strong> - all created actions</li>
+  <li><strong>assignment/{actionUID}/values/{autoID}</strong> - each doc is one vehicle assignment. Departure time, passangers and roles.</li>
+  <li><strong>profiles/{userUID}</strong> - basic information about user</li>
+  <li><strong>roles/{userUID}</strong> - roles assigned to user</li>
+  <li><strong>tokens/{userUID}</strong> - FCM token for each user for sending FCM message</li>
+  <li><strong>vehicles/{autoID}</strong> - dictionary of vehicles.</li>
+  <li><strong>locale/{userUID}</strong> - assigned langauge of each user to determine notifications payload from cloud functions</li>
+  <li><strong>reports/{actionUID}</strong> - reports from action created by user</li>
+  <li><strong>chat/{actionUID}/messages/{timestamp}</strong> - collection for chat messages per each action.</li>
+</ul>
+
+<h1 id="minimum-database-content-requirments">Minimum database content requirments</h1>
+
+<p>If you followed QuickStart guide then described below documents should already be in your database created by <em>initDatabase</em> function.
+<strong><em>Without those requirments app won’t work</em></strong></p>
+
+<p><strong>Required collections:</strong></p>
+<ul>
+  <li><strong>actionTypesDictionary</strong></li>
+  <li><strong>vehicles</strong> should always contain at least 1 common car <code class="language-plaintext highlighter-rouge">capacity != null, name != null, ownerID = null</code> and 1 dummy car <code class="language-plaintext highlighter-rouge">capacity = null, isDummy = true, name != null (np. Unassigned), owenrID = null</code>. Cars with owenrID != null can be deleted - they are created during declaration of user with ownVehicle checkbox marked.</li>
+  <li><strong>roles/{userUID}</strong> should contain array named roles with two elements: user, admin. <em>userUID</em> is ID user from Authentication tab. This user is required for Admin panel to create new users with roles and profile tables.</li>
+</ul>
+
+<p><strong><em>User without roles and profiles document cannot log into mobile!!</em></strong></p>
+
+</div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+        <footer class="footer">
+    <div class="container">
+        
+        
+
+        <div class="content is-small has-text-centered">
+            <p class="">Theme built by <a href="https://www.csrhymes.com">C.S. Rhymes</a></p>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="/RescueMobileIntiative/assets/js/app.js" type="text/javascript"></script><!-- footer scripts --></body>
+</html>
+

@@ -34,6 +34,11 @@ System is powered by following components:
  
 ![native_firestore](../assets/images/native_firestore.png){:height="300px" width="300"}
 
+# Setup geoLocation API
+
+For geocoding feature in app we are using https://locationiq.com/ . You can use it also - after creating account paste received token into config.json .
+However if you would like to use another geocoding service modify LocationRepository class according to your requirments
+
 # Download required components
 
 1. From repo <http://cloud_functions_url.com> obtain code for cloud functions
@@ -89,7 +94,16 @@ After you are ready to go with web app create some user with "coordinator" right
 # Prepare mobile app
 
 **Flutter part:**
-Go to **config.dart** and define you _cloud _functions _url visible in Firebase console functions list
+Create **config.json** file in assets folder with following body:
+```
+{
+  "dev_url": "https://<your-project>.cloudfunctions.net",
+  "qa_url": "https://<your-project>.cloudfunctions.net",
+  "prod_url": "https://<your-project>.cloudfunctions.net",
+  "geoLoc_url": "https://eu1.locationiq.com/v1",
+  "geoLoc_token": "API_TOKEN for locationiq"
+}
+```
 
 ![native_firestore](../assets/images/cloud_url.png)
 

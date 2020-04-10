@@ -1,8 +1,12 @@
 - name: App architecutre
   link: /#
   dropdown:
-    - name: Page With Sidebar
-      link: /page-1/
+    - name: Database
+      link: /database/
+    - name: Cloud functions
+      link: /cloudfunc/
+    - name: Mobile app
+      link: /mobileapp/
 - name: Get Started
   link: /setupapp/
 - name: Showcase
