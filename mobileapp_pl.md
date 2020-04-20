@@ -3,6 +3,8 @@ title: Mobile app
 subtitle: Descryption of mobile app
 layout: page
 show_sidebar: false
+lang: pl
+permalink: /mobileapp
 ---
 
 # Authorization

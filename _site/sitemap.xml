@@ -10,7 +10,7 @@
 <loc>http://localhost:4000/RescueMobileIntiative/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/RescueMobileIntiative/mobileapp/</loc>
+<loc>http://localhost:4000/RescueMobileIntiative/mobileapp</loc>
 </url>
 <url>
 <loc>http://localhost:4000/RescueMobileIntiative/setupapp/</loc>

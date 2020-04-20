@@ -8,9 +8,14 @@ url: "http://masztalski.github.io"
 permalink: pretty
 #theme: bulma-clean-theme
 remote_theme: chrisrhymes/bulma-clean-theme
+languages: ["en", "pl"]
+default_lang: "en"
+exclude_from_localization: ["javascript", "images", "css"]
+parallel_localization: false
 
 plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-redirect-from
   - github-pages
+  - jekyll-polyglot

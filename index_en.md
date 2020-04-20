@@ -5,10 +5,12 @@ layout: page
 #callouts: home_callouts
 show_sidebar: false
 hero_image: assets/images/intive_background.png
+lang: en
+permalink: /
 ---
 
 # Who are we
 
-Inicjatywa aby pomóc ratownikom
+Help rescuers
 
 ![DeclareAvaibility](assets/images/avaibility.png){:height="200px" width="100px"}
